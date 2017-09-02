@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainScrollView"
+    style="@style/ScrollView.Main">
+
+    <LinearLayout
+        android:id="@+id/mainLinearLayout"
+        style="@style/Layout.Linear">
+
+        <RelativeLayout
+            android:id="@+id/userRelativeLayout"
+            style="@style/Layout.HeightWarp"
+            android:layout_height="240dip"
+            android:background="@drawable/selector_color_add_main"
+            android:paddingTop="48dip">
+
+            <ImageView
+                android:id="@+id/headImageView"
+                style="@style/ImageView.UserHead"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/usernameTextView"
+                style="@style/TextView.Username"
+                android:layout_below="@+id/headImageView"/>
+
+            <LinearLayout
+                style="@style/Layout.LinearHor"
+                android:layout_below="@+id/usernameTextView"
+                android:background="@color/backgroundUser">
+
+                <TextView
+                    android:id="@+id/collectionGoodsTextView"
+                    style="@style/TextView.UserCollection"
+                    android:drawableTop="@mipmap/ic_collection_goods"
+                    android:text="商品收藏"/>
+
+                <TextView
+                    android:id="@+id/collectionStoreTextView"
+                    style="@style/TextView.UserCollection"
+                    android:drawableTop="@mipmap/ic_collection_store"
+                    android:text="店铺收藏"/>
+
+                <TextView
+                    android:id="@+id/myFootprintTextView"
+                    style="@style/TextView.UserCollection"
+                    android:drawableTop="@mipmap/ic_user_footprint"
+                    android:text="我的足迹"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/orderTextView"
+            style="@style/TextView.UserTitle"
+            android:drawableLeft="@mipmap/ic_user_order"
+            android:text="全部订单"/>
+
+        <LinearLayout
+            android:id="@+id/orderLinearLayout"
+            style="@style/Layout.LinearHor">
+
+            <TextView
+                android:id="@+id/orderWaitPayTextView"
+                style="@style/TextView.UserOrder"
+                android:drawableTop="@mipmap/ic_user_order_wait_pay"
+                android:text="未付款"/>
+
+            <TextView
+                android:id="@+id/orderWaitDriveTextView"
+                style="@style/TextView.UserOrder"
+                android:drawableTop="@mipmap/ic_user_order_wait_drive"
+                android:text="待发货"/>
+
+            <TextView
+                android:id="@+id/orderWaitReceiptTextView"
+                style="@style/TextView.UserOrder"
+                android:drawableTop="@mipmap/ic_user_order_wait_receipt"
+                android:text="待收货"/>
+
+            <TextView
+                android:id="@+id/orderWaitCommentTextView"
+                style="@style/TextView.UserOrder"
+                android:drawableTop="@mipmap/ic_user_order_wait_comment"
+                android:text="待评价"/>
+
+            <TextView
+                android:id="@+id/orderWaitRefundTextView"
+                style="@style/TextView.UserOrder"
+                android:drawableTop="@mipmap/ic_user_order_wait_refund"
+                android:text="退款/货"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/propertyTextView"
+            style="@style/TextView.UserTitle"
+            android:drawableLeft="@mipmap/ic_user_property"
+            android:text="我的财产"/>
+
+        <LinearLayout
+            android:id="@+id/propertyLinearLayout"
+            style="@style/Layout.LinearHor">
+
+            <TextView
+                android:id="@+id/propertyMoneyTextView"
+                style="@style/TextView.UserOrder"
+                android:drawableTop="@mipmap/ic_user_property_money"
+                android:text="预存款"/>
+
+            <TextView
+                android:id="@+id/propertyCardTextView"
+                style="@style/TextView.UserOrder"
+                android:drawableTop="@mipmap/ic_user_property_card"
+                android:text="充值卡"/>
+
+            <TextView
+                android:id="@+id/propertyVouchersTextView"
+                style="@style/TextView.UserOrder"
+                android:drawableTop="@mipmap/ic_user_property_vouchers"
+                android:text="代金券"/>
+
+            <TextView
+                android:id="@+id/propertyRedTextView"
+                style="@style/TextView.UserOrder"
+                android:drawableTop="@mipmap/ic_user_property_red"
+                android:text="红包"/>
+
+            <TextView
+                android:id="@+id/propertyIntegralTextView"
+                style="@style/TextView.UserOrder"
+                android:drawableTop="@mipmap/ic_user_property_integral"
+                android:text="积分"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/addressTextView"
+            style="@style/TextView.UserTitle"
+            android:drawableLeft="@mipmap/ic_user_address"
+            android:text="收货地址"/>
+
+        <TextView
+            android:id="@+id/settingTextView"
+            style="@style/TextView.UserTitle"
+            android:layout_marginBottom="16dip"
+            android:layout_marginTop="0dip"
+            android:drawableLeft="@mipmap/ic_user_setting"
+            android:text="系统设置"/>
+
+    </LinearLayout>
+
+</ScrollView>

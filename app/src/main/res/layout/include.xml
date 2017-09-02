@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              style="@style/Layout.Toolbar"
+              android:background="@color/colorYellow">
+
+    <ImageView
+        android:id="@+id/zxing"
+        style="@style/ImageView.Toolbar"
+        android:src="@drawable/ic_normal_code"/>
+
+    <EditText
+        android:id="@+id/titleEditText"
+        style="@style/EditText.Search"/>
+
+    <ImageView
+        android:id="@+id/message"
+        style="@style/ImageView.Toolbar"
+        android:src="@drawable/ic_normal_message"/>
+
+</LinearLayout>

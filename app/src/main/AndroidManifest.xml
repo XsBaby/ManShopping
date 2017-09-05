@@ -3,6 +3,8 @@
           package="com.xushuai.man">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -18,6 +20,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MainActivity">
+        </activity>
+        <activity android:name=".activity.LoginActivity">
+        </activity>
+        <activity android:name=".activity.RegisterActivity">
         </activity>
     </application>
 

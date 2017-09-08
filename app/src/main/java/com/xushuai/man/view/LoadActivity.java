@@ -1,4 +1,4 @@
-package com.xushuai.man.activity;
+package com.xushuai.man.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +28,7 @@ public class LoadActivity extends AppCompatActivity {
                 //开始跳转
                 Intent intent = new Intent(LoadActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         }, 1000);
     }

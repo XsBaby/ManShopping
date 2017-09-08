@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.xushuai.man.R;
-import com.xushuai.man.activity.LoginActivity;
+import com.xushuai.man.view.LoginActivity;
 
 /**
  * date:2017/8/31
@@ -42,6 +42,7 @@ public class MineFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.headImageView:
+                //跳转到登录界面
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
                 break;

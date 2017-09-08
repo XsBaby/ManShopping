@@ -1,6 +1,7 @@
 <resources>
 
     <style name="Control"/>
+
     <style name="Animation.Main" parent="@android:style/Animation">
         <item name="android:activityOpenExitAnimation">@anim/activity_left_out</item>
         <item name="android:activityOpenEnterAnimation">@anim/activity_right_in</item>
@@ -31,6 +32,12 @@
     <style name="Layout.Toolbar" parent="Control">
         <item name="android:layout_height">50dip</item>
         <item name="android:layout_width">fill_parent</item>
+    </style>
+
+    <style name="Spinner.Toolbar" parent="Control">
+        <item name="android:layout_width">64dip</item>
+        <item name="android:layout_height">34dip</item>
+        <item name="android:layout_marginRight">4dip</item>
     </style>
 
     <style name="ImageView.Toolbar" parent="Control">

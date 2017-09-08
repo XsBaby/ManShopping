@@ -1,4 +1,4 @@
-package com.xushuai.man.activity;
+package com.xushuai.man.view;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;

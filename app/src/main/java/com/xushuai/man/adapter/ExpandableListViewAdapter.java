@@ -79,17 +79,13 @@ public class ExpandableListViewAdapter extends BaseExpandableListAdapter {
                 if (view instanceof TextView) {
                     //如果想要获取到哪一行，则自定义gridview的adapter，item设置2个textview一个隐藏设置id，显示哪一行
                     TextView tv = (TextView) view;
-                    Toast.makeText(context,
-                            "position=" + position + "||" + tv.getText(),
-                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, tv.getText(), Toast.LENGTH_SHORT).show();
 
                     if (position == 0 && tv.getText().equals("瑞士品牌")) {
                         Intent intent = new Intent(context, ShopListActivity.class);
                         context.startActivity(intent);
                     }
-
-                    Log.e("hefeng", "gridView listaner position=" + position
-                            + "||text=" + tv.getText());
+                    Log.e("hefeng", "gridView listaner position=" + position + "||text=" + tv.getText());
                 }
             }
         });

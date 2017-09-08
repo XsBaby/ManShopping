@@ -38,11 +38,31 @@ public class ShopListAdapter extends RecyclerView.Adapter<ShopListAdapter.SlView
     }
 
     @Override
-    public void onBindViewHolder(SlViewHolder holder, int position) {
+    public void onBindViewHolder(SlViewHolder holder, final int position) {
         //赋值
         Glide.with(context).load(list.get(position).getGoods_image_url()).into(holder.sl_img);
         holder.goodsName.setText(list.get(position).getGoods_name());
         holder.goodsPrice.setText("￥" + list.get(position).getGoods_price());
+
+        holder.sl_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onItemClickListener(position, v);
+            }
+        });
+        holder.goodsName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onItemClickListener(position, v);
+            }
+        });
+
+        holder.goodsPrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onItemClickListener(position, v);
+            }
+        });
     }
 
     @Override

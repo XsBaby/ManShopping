@@ -9,6 +9,7 @@
     <color name="colorWhite">#5D646F</color>
     <color name="mainAdd">#DD3000</color>
     <color name="main">#FF5001</color>
+    <color name="divider">#ffd2d2d2</color>
 
     <color name="white">#FFFFFF</color>
     <color name="whiteAdd">#F3F3F3</color>

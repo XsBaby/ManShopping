@@ -4,12 +4,22 @@ package com.xushuai.man.bean;
  * date:2017/9/11
  * author:徐帅(acer)
  * funcation:数据库实体类
-*/
+ */
 
 public class SQLiteBean {
     private String name;
     private String price;
     private String imageurl;
+
+    private boolean isCheck;
+
+    public boolean isCheck() {
+        return isCheck;
+    }
+
+    public void setCheck(boolean isCheck) {
+        this.isCheck = isCheck;
+    }
 
     public SQLiteBean(String name, String price, String imageurl) {
         this.name = name;

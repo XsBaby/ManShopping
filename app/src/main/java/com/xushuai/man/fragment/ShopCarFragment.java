@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ListView;
 
 import com.xushuai.man.R;
@@ -25,8 +26,12 @@ import java.util.List;
 public class ShopCarFragment extends Fragment {
 
     private View view;
+
     private ListView sc_listView;
     private List<SQLiteBean> list;
+    private CheckBox sc_cb;
+    private boolean checked;
+    private ShopCarAdapter adapter;
 
     @Nullable
     @Override
@@ -42,6 +47,27 @@ public class ShopCarFragment extends Fragment {
 
     private void initView() {
         sc_listView = (ListView) view.findViewById(R.id.sc_listView);
+        sc_cb = (CheckBox) view.findViewById(R.id.sc_cb);
+
+        sc_cb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for(int i=0;i<list.size();i++){
+                    if(!checked){
+                        list.get(i).setCheck(true);
+                    }else {
+                        list.get(i).setCheck(false);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+
+                if(!checked){
+                    checked = true;
+                }else {
+                    checked = false;
+                }
+            }
+        });
     }
 
     private void initData() {
@@ -52,7 +78,7 @@ public class ShopCarFragment extends Fragment {
         list = sqLiteUtils.query();
         System.out.println("query = " + list);
         //添加适配器
-        ShopCarAdapter adapter = new ShopCarAdapter(getActivity(), list);
+        adapter = new ShopCarAdapter(getActivity(), list);
         sc_listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

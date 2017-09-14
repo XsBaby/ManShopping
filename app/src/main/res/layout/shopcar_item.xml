@@ -30,12 +30,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <CheckBox
+            android:id="@+id/scitem_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/check_box_bg"
+            android:button="@null"/>
+
         <ImageView
             android:id="@+id/sc_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/scitem_cb"
             android:src="@mipmap/ic_launcher"/>
 
         <TextView
@@ -68,10 +78,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/textview_border"
-            android:textSize="20sp"
             android:layout_marginTop="6dp"
-            android:text="删除"/>
+            android:background="@drawable/textview_border"
+            android:text="删除"
+            android:textSize="20sp"/>
 
         <com.xushuai.man.view.AmountView
             android:id="@+id/selfview"

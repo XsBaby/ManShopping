@@ -17,16 +17,39 @@
     <ListView
         android:id="@+id/sc_listView"
         android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent"
+        android:layout_weight="1"></ListView>
 
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:layout_gravity="right"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:background="@color/main"
-        android:text="去结算"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/sc_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="11dp"
+            android:background="@drawable/check_box_bg"
+            android:button="@null"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="5dp"
+            android:text=" 全选"
+            android:textSize="23sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/main"
+            android:gravity="center"
+            android:text="去结算"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+    </RelativeLayout>
 </LinearLayout>

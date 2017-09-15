@@ -1,5 +1,6 @@
 package com.xushuai.man.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.xushuai.man.R;
+import com.xushuai.man.adapter.ZxingActivity;
 
 /**
  * date:2017/8/31
@@ -41,7 +43,9 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.zxing:
-
+                //跳转到生成二维码的界面
+                Intent intent = new Intent(getActivity(), ZxingActivity.class);
+                startActivity(intent);
                 break;
         }
     }

@@ -13,7 +13,6 @@ import com.xushuai.man.R;
 import com.xushuai.man.bean.SQLiteBean;
 import com.xushuai.man.view.AmountView;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -26,7 +25,6 @@ public class ShopCarAdapter extends BaseAdapter {
 
     private Context context;
     private List<SQLiteBean> list;
-    private HashMap<Integer, Boolean> isCheckedHasMap;
 
     public ShopCarAdapter(Context context, List<SQLiteBean> list) {
         this.context = context;

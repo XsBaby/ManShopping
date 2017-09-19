@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.xushuai.man.R;
-import com.xushuai.man.adapter.ZxingActivity;
+import com.xushuai.man.view.ZxingActivity;
 
 /**
  * date:2017/8/31

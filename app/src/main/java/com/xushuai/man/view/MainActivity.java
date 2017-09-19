@@ -12,7 +12,11 @@ import android.widget.TabWidget;
 import android.widget.TextView;
 
 import com.xushuai.man.R;
+import com.xushuai.man.utils.FirstEvent;
 import com.xushuai.man.utils.TabDb;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 public class MainActivity extends FragmentActivity implements OnTabChangeListener {
 
@@ -22,6 +26,11 @@ public class MainActivity extends FragmentActivity implements OnTabChangeListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //注册EventBus
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
         //初始化FragmentTabHost
         initHost();
         //初始化底部导航栏
@@ -75,5 +84,22 @@ public class MainActivity extends FragmentActivity implements OnTabChangeListene
                 iv.setImageResource(TabDb.getTabsImg()[i]);
             }
         }
+    }
+
+    /**
+     * Declare your subscribing method
+     * 声明自己的订阅方法
+     *
+     * @param event
+     */
+    @Subscribe
+    public void onEvent(FirstEvent event) {
+//        Toast.makeText(getActivity(), event.msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);//反注册EventBus
     }
 }

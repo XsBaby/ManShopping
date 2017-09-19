@@ -3,10 +3,12 @@ package com.xushuai.man.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ListView;
 
 import com.xushuai.man.R;
@@ -30,8 +32,10 @@ public class ShopCarFragment extends Fragment {
     private ListView sc_listView;
     private List<SQLiteBean> list;
     private CheckBox sc_cb;
-    private boolean checked;
     private ShopCarAdapter adapter;
+
+    //监听来源
+    public boolean mIsFromItem = false;
 
     @Nullable
     @Override
@@ -48,26 +52,6 @@ public class ShopCarFragment extends Fragment {
     private void initView() {
         sc_listView = (ListView) view.findViewById(R.id.sc_listView);
         sc_cb = (CheckBox) view.findViewById(R.id.sc_cb);
-
-        sc_cb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                for(int i=0;i<list.size();i++){
-                    if(!checked){
-                        list.get(i).setCheck(true);
-                    }else {
-                        list.get(i).setCheck(false);
-                    }
-                }
-                adapter.notifyDataSetChanged();
-
-                if(!checked){
-                    checked = true;
-                }else {
-                    checked = false;
-                }
-            }
-        });
     }
 
     private void initData() {
@@ -78,8 +62,46 @@ public class ShopCarFragment extends Fragment {
         list = sqLiteUtils.query();
         System.out.println("query = " + list);
         //添加适配器
-        adapter = new ShopCarAdapter(getActivity(), list);
+        adapter = new ShopCarAdapter(getActivity(), list, new AllCheckListener() {
+            @Override
+            public void onCheckedChanged(boolean b) {
+                //根据不同的情况对maincheckbox做处理
+                if (!b && !sc_cb.isChecked()) {
+                    return;
+                } else if (!b && sc_cb.isChecked()) {
+                    mIsFromItem = true;
+                    sc_cb.setChecked(false);
+                } else if (b) {
+                    mIsFromItem = true;
+                    sc_cb.setChecked(true);
+                }
+            }
+        });
         sc_listView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+
+        //CheckBox改变监听事件
+        sc_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                //当监听来源为点击item改变maincbk状态时不在监听改变，防止死循环
+                if (mIsFromItem) {
+                    mIsFromItem = false;
+                    Log.e("mainCheckBox", "此时我不可以触发");
+                    return;
+                }
+
+                //改变数据
+                for (SQLiteBean model : list) {
+                    model.setCheck(isChecked);
+                }
+                //刷新listview
+                adapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    //对item导致maincheckbox改变做监听
+    public interface AllCheckListener {
+        void onCheckedChanged(boolean b);
     }
 }

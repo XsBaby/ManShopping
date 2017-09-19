@@ -1,4 +1,4 @@
-package com.xushuai.man.adapter;
+package com.xushuai.man.view;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
